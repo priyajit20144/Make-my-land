@@ -1,0 +1,294 @@
+Cluster connection status
+Database access user
+Network access / IP whitelist
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make My Land | Find Your Perfect Land</title>
+    <meta name="description" content="Premium land buying and selling platform" />
+    <meta name="theme-color" content="#0f3d2e" />
+    <link rel="manifest" href="manifest.json" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div id="splash" class="splash-screen">
+      <video autoplay muted loop playsinline class="splash-video">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+      </video>
+      <div class="splash-overlay"></div>
+      <div class="splash-content">
+        <div class="logo-badge">🌍</div>
+        <h1 class="glow-text">MAKE MY LAND</h1>
+        <p>Buy • Sell • Discover Your Dream Land</p>
+      </div>
+    </div>
+
+    <header class="hero-section">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Make My Land" class="navbar-logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="buy.html">Buy Land</a></li>
+              <li class="nav-item"><a class="nav-link" href="sell.html">Sell Land</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+              <li class="nav-item"><button class="btn btn-outline-light ms-2" id="themeToggle">🌙</button></li>
+              <li class="nav-item"><a class="btn btn-outline-light ms-2" href="login.html">Login</a></li>
+              <li class="nav-item"><a class="btn btn-gold ms-2" href="register.html">Register</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hero-video-wrapper">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-7" data-aos="fade-right">
+              <span class="badge premium-badge">🏆 Premium Land Marketplace</span>
+              <h1 class="display-3 fw-bold mb-4">Find Your Perfect Land Investment</h1>
+              <p class="lead mb-4">Discover verified land opportunities across India with transparent pricing, complete documentation, and secure transactions. Your trusted partner in smart land investments.</p>
+              <div class="d-flex gap-3 flex-wrap">
+                <a href="buy.html" class="btn btn-primary-cta btn-lg">Start Exploring</a>
+                <a href="sell.html" class="btn btn-secondary-cta btn-lg">Sell Your Land</a>
+              </div>
+              <div class="mt-4 d-flex gap-4 flex-wrap">
+                <div class="trust-badge">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Verified & Secure</span>
+                </div>
+                <div class="trust-badge">
+                  <i class="fas fa-certificate"></i>
+                  <span>Licensed Dealers</span>
+                </div>
+                <div class="trust-badge">
+                  <i class="fas fa-clock"></i>
+                  <span>24/7 Support</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-left">
+              <div class="search-card">
+                <h4 class="mb-3 fw-bold">Quick Land Search</h4>
+                <form class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label-enhanced">State</label>
+                    <select class="form-select form-select-enhanced"><option>Select State</option><option>Delhi</option><option>Punjab</option><option>Uttar Pradesh</option><option>Haryana</option><option>Rajasthan</option></select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label-enhanced">District</label>
+                    <select class="form-select form-select-enhanced"><option>Select District</option><option>Gurugram</option><option>Mohali</option><option>Noida</option><option>Ghaziabad</option></select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label-enhanced">Village/Area</label>
+                    <input class="form-control form-control-enhanced" placeholder="Enter village or area name" />
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label-enhanced">Min Price</label>
+                    <input class="form-control form-control-enhanced" type="number" placeholder="₹ Min" />
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label-enhanced">Max Price</label>
+                    <input class="form-control form-control-enhanced" type="number" placeholder="₹ Max" />
+                  </div>
+                  <div class="col-12">
+                    <button type="button" class="btn btn-primary-cta w-100">Search Now</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="py-5 section-gradient">
+        <div class="container">
+          <div class="row g-4 text-center">
+            <div class="col-md-3" data-aos="fade-up">
+              <div class="stat-card">
+                <div class="stat-number">15,000+</div>
+                <div class="stat-label">Listings</div>
+              </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="stat-card">
+                <div class="stat-number">50,000+</div>
+                <div class="stat-label">Happy Users</div>
+              </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="stat-card">
+                <div class="stat-number">₹5000 Cr+</div>
+                <div class="stat-label">Transactions Completed</div>
+              </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="stat-card">
+                <div class="stat-number">28+</div>
+                <div class="stat-label">States Covered</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container py-5" data-aos="fade-up">
+        <div class="section-title text-center mb-5">
+          <h2>Latest Selling Properties</h2>
+          <p class="section-subtitle">Fresh land listings posted by sellers and ready for review.</p>
+        </div>
+        <div class="row g-4" id="featured-properties">
+          <div class="col-12 text-center text-muted">Loading latest listings…</div>
+        </div>
+      </section>
+
+      <section class="container py-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80" class="img-fluid rounded-4" alt="Property" />
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <h3 class="display-5 fw-bold mb-4">Why Choose Make My Land?</h3>
+            <p class="lead text-muted mb-4">We combine advanced technology, verified listings, and premium service to deliver the most secure land buying and selling experience in India.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 0.75rem;"></i> <strong>Verified Ownership Documents</strong> - All properties verified by legal experts</li>
+              <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 0.75rem;"></i> <strong>Live Maps & Location Insights</strong> - Interactive maps with area demographics</li>
+              <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 0.75rem;"></i> <strong>Direct Buyer-Seller Communication</strong> - No middlemen, transparent dealings</li>
+              <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 0.75rem;"></i> <strong>Secure & Transparent Deals</strong> - Escrow protection for all transactions</li>
+              <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 0.75rem;"></i> <strong>24/7 Expert Support</strong> - Legal and technical assistance available</li>
+              <li><i class="fas fa-check-circle" style="color: var(--secondary); margin-right: 0.75rem;"></i> <strong>Low Transaction Costs</strong> - Competitive fees with no hidden charges</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="container py-5">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+          <h2>Trusted by Thousands</h2>
+          <p class="section-subtitle">Real stories from real buyers and sellers who found success on Make My Land</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="testimonial-card">
+              <div class="mb-3">
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+              </div>
+              <p class="testimonial-quote">"The experience was seamless and fully transparent. I found the perfect agricultural plot in just a week at a fair price. Highly recommended!"</p>
+              <p class="testimonial-author">— Arjun Singh, Farmer</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonial-card">
+              <div class="mb-3">
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+              </div>
+              <p class="testimonial-quote">"Great platform with excellent verification tools. The interactive maps and property details made me feel confident throughout the process."</p>
+              <p class="testimonial-author">— Neha Sharma, Real Estate Investor</p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-card">
+              <div class="mb-3">
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+              </div>
+              <p class="testimonial-quote">"Excellent service for sellers too. I received multiple qualified enquiries quickly and closed the deal within a month!"</p>
+              <p class="testimonial-author">— Ravi Kapoor, Land Seller</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-enhanced py-5 mt-5">
+      <div class="container">
+        <div class="row g-4 mb-4">
+          <div class="col-md-3">
+            <h5>About Make My Land</h5>
+            <p class="small text-muted mb-3">India's most trusted platform for buying and selling verified land with complete transparency and security.</p>
+            <div class="social-links">
+              <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5>Quick Links</h5>
+              <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="buy.html">Buy Land</a>
+              <a href="sell.html">Sell Land</a>
+              <a href="about.html">About Us</a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5>Support</h5>
+            <div class="footer-links">
+              <a href="#">Contact Us</a>
+              <a href="#">FAQs</a>
+              <a href="#">Legal Guides</a>
+              <a href="#">Blog</a>
+              <a href="#">Help Center</a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5>Contact Info</h5>
+            <p class="small mb-2">
+              <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i> New Delhi, India
+            </p>
+            <p class="small mb-2">
+              <i class="fas fa-phone" style="color: var(--secondary);"></i> +91-XXXX-XXXX-XX
+            </p>
+            <p class="small mb-2">
+              <i class="fas fa-envelope" style="color: var(--secondary);"></i> support@makemyland.com
+            </p>
+          </div>
+        </div>
+        <hr class="my-4">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="small mb-0">&copy; 2024 Make My Land. All rights reserved. | <a href="#" class="text-muted" style="text-decoration: none;">Privacy Policy</a> | <a href="#" class="text-muted" style="text-decoration: none;">Terms of Service</a></p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <p class="small mb-0">Built with <i class="fas fa-heart" style="color: #d4af37;"></i> for land lovers across India</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

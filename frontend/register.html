@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Make My Land</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .register-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      .register-container::before {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        top: -100px;
+        left: -100px;
+      }
+
+      .register-container::after {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        bottom: -100px;
+        right: -100px;
+      }
+
+      .register-card {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: slideUp 0.5s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .register-card h2 {
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .register-card .subtitle {
+        color: var(--text-muted);
+        font-size: 14px;
+        margin-bottom: 25px;
+      }
+
+      .register-card .form-control {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      .register-card .form-control:focus {
+        background: rgba(0, 0, 0, 0.08);
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+
+      .register-card .form-select {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+
+      .register-card .form-select:focus {
+        background: rgba(0, 0, 0, 0.08);
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+
+      .register-card .btn-gold {
+        padding: 12px 24px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .register-card .btn-gold:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(218, 165, 32, 0.3);
+      }
+
+      .register-card p {
+        text-align: center;
+        color: var(--text-muted);
+        margin-top: 20px;
+      }
+
+      .register-card a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .register-card a:hover {
+        color: var(--secondary);
+      }
+
+      .error-message {
+        display: none;
+        background: #fee;
+        color: #c33;
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #c33;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      .error-message.show {
+        display: block;
+      }
+
+      .success-message {
+        display: none;
+        background: #efe;
+        color: #3a3;
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid #3a3;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      .success-message.show {
+        display: block;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .loading {
+        display: none;
+      }
+
+      .loading.show {
+        display: inline-block;
+      }
+
+      @media (max-width: 576px) {
+        .register-card {
+          margin: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="register-container">
+      <div class="register-card p-5">
+        <h2>
+          <i class="fas fa-user-plus"></i>
+          Join Us
+        </h2>
+        <p class="subtitle">Create an account to start buying or selling land</p>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <form id="register-form">
+          <div class="mb-3">
+            <label class="form-label fw-500">Full Name</label>
+            <input 
+              class="form-control" 
+              name="name" 
+              placeholder="Enter your full name"
+              required 
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-500">Email Address</label>
+            <input 
+              class="form-control" 
+              name="email" 
+              type="email" 
+              placeholder="Enter your email"
+              required 
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-500">Phone Number</label>
+            <input 
+              class="form-control" 
+              name="phone" 
+              placeholder="Enter your phone number"
+              required 
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-500">Password</label>
+            <input 
+              class="form-control" 
+              name="password" 
+              type="password" 
+              placeholder="Create a strong password"
+              required 
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-500">I want to be a:</label>
+            <select class="form-select" name="role">
+              <option value="buyer">Buyer - Looking to buy land</option>
+              <option value="seller">Seller - Want to sell land</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-gold w-100 mb-3">
+            <span class="loading show" id="registerLoading">
+              <i class="fas fa-spinner fa-spin me-2"></i>
+            </span>
+            Create Account
+          </button>
+        </form>
+
+        <p>
+          Already have an account? 
+          <a href="login.html">Sign in here</a>
+        </p>
+
+        <hr class="my-3" style="opacity: 0.2;">
+
+        <p style="font-size: 12px; color: var(--text-muted);">
+          <i class="fas fa-shield-alt me-1"></i>
+          Your data is secure and encrypted
+        </p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const registerForm = document.getElementById('register-form');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        const registerLoading = document.getElementById('registerLoading');
+        const submitBtn = registerForm.querySelector('button[type="submit"]');
+
+        // Redirect if already logged in
+        const token = localStorage.getItem('token');
+        const user = JSON.parse(localStorage.getItem('user') || 'null');
+        if (token && user) {
+          window.location.href = user.role === 'admin' ? 'admin.html' : 'dashboard.html';
+        }
+
+        registerForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          // Hide previous messages
+          errorMessage.classList.remove('show');
+          successMessage.classList.remove('show');
+          
+          // Show loading
+          submitBtn.disabled = true;
+          registerLoading.style.display = 'inline-block';
+
+          const payload = Object.fromEntries(new FormData(registerForm));
+          
+          try {
+            const res = await fetch('/api/auth/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            
+            const data = await res.json();
+
+            if (res.ok) {
+              // Save session
+              localStorage.setItem('token', data.token);
+              localStorage.setItem('user', JSON.stringify(data.user));
+              
+              successMessage.textContent = `✓ Account created! Welcome, ${data.user.name}!`;
+              successMessage.classList.add('show');
+              
+              setTimeout(() => {
+                window.location.href = 'dashboard.html';
+              }, 1500);
+            } else {
+              errorMessage.textContent = `✗ ${data.message || 'Registration failed. Please try again.'}`;
+              errorMessage.classList.add('show');
+              submitBtn.disabled = false;
+              registerLoading.style.display = 'none';
+            }
+          } catch (error) {
+            errorMessage.textContent = '✗ Connection error. Please check your internet.';
+            errorMessage.classList.add('show');
+            submitBtn.disabled = false;
+            registerLoading.style.display = 'none';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

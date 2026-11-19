@@ -1,0 +1,9 @@
+{
+  "name": "Make My Land",
+  "short_name": "MML",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8f5",
+  "theme_color": "#0f3d2e",
+  "icons": []
+}

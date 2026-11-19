@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel | Make My Land</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="container py-5 page-top">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-2">
+        <div>
+          <h1 class="display-5 fw-bold">Admin Panel</h1>
+          <p class="text-muted mb-0" id="admin-welcome">Review listings, buyer requests, and user accounts from a single admin dashboard.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <a href="index.html" class="btn btn-outline-light">Main Site</a>
+          <button id="admin-logout" class="btn btn-outline-light">Logout</button>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5" id="admin-stats">
+        <div class="col-md-3">
+          <div class="card glass-card p-4 text-center">
+            <h6>Total Properties</h6>
+            <p class="fs-3 fw-bold" id="total-properties">—</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card glass-card p-4 text-center">
+            <h6>Total Users</h6>
+            <p class="fs-3 fw-bold" id="total-users">—</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card glass-card p-4 text-center">
+            <h6>Buy Requests</h6>
+            <p class="fs-3 fw-bold" id="total-requests">—</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card glass-card p-4 text-center">
+            <h6>Pending Listings</h6>
+            <p class="fs-3 fw-bold" id="pending-properties">—</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card glass-card p-4 text-center">
+            <h6>Pending Buy Requests</h6>
+            <p class="fs-3 fw-bold" id="pending-buy-requests">—</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card glass-card p-4 text-center">
+            <h6>Approved Buy Requests</h6>
+            <p class="fs-3 fw-bold" id="approved-buy-requests">—</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-3">
+        <div class="col-12">
+          <div class="card glass-card p-3">
+            <div class="row gy-2 gx-3 align-items-end">
+              <div class="col-md-4">
+                <label class="form-label mb-1">Search</label>
+                <input id="admin-search" class="form-control" placeholder="Search title, owner, village, district" />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label mb-1">Land type</label>
+                <select id="admin-filter" class="form-select">
+                  <option value="">All types</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Agricultural">Agricultural</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label mb-1">Listing status</label>
+                <select id="admin-status" class="form-select">
+                  <option value="">All statuses</option>
+                  <option value="true">Verified</option>
+                  <option value="false">Pending</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-lg-8">
+          <div class="card glass-card p-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="mb-0">Property Listings</h5>
+              <small class="text-muted">Approve or remove listings</small>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Title</th>
+                    <th>Owner</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-properties">
+                  <tr><td colspan="5" class="text-center text-muted">Loading properties…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card glass-card p-3 mb-4">
+            <h5 class="mb-3">Users</h5>
+            <div class="table-responsive">
+              <table class="table table-sm align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-users">
+                  <tr><td colspan="3" class="text-center text-muted">Loading users…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card glass-card p-3">
+            <h5 class="mb-3">Buyer Requests</h5>
+            <ul class="list-group list-group-flush" id="admin-requests">
+              <li class="list-group-item text-center text-muted">Loading requests…</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Details Modal -->
+    <div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content glass-card border-0 text-white" style="background: rgba(15, 61, 46, 0.95); backdrop-filter: blur(10px);">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title" id="userDetailsModalLabel">👤 User Profile Details</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="user-details-body">
+            <!-- Loaded dynamically -->
+            <div class="text-center py-4"><div class="spinner-border text-gold" role="status"></div></div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
